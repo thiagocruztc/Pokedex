@@ -17,10 +17,15 @@ function PokeDisplay(props) {
         src={props.pokeStatus.front_sprite}
         alt={props.pokeStatus.name + "-frontsprite"}
       ></img>
-      <img
-        src={props.pokeStatus.back_sprite}
-        alt={props.pokeStatus.name + "-backsprite"}
-      ></img>
+
+      {props.pokeStatus.back_sprite !== null ? (
+        <img
+          src={props.pokeStatus.back_sprite}
+          alt={props.pokeStatus.name + "-backsprite"}
+        ></img>
+      ) : (
+        ""
+      )}
     </div>
   );
 }

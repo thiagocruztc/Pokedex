@@ -7,7 +7,7 @@ function Search(props) {
     https://reactjs.org/docs/refs-and-the-dom.html
     https://reactjs.org/docs/forwarding-refs.html*/
     const searchString = document.getElementById("searchBox").value;
-    props.setSearchQuery(searchString);
+    props.setSearchQuery(searchString.toLowerCase());
   };
 
   return (

@@ -1,7 +1,7 @@
 {
-  "name": "pokedex",
+  "name": "pokedex-v01",
   "version": "1.0.0",
-  "description": "",
+  "description": "- Solved UseEffect loop bug\n- Solved dynamic display bug with failed searches\n- Added dynamic types\n- Refactored directory ",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {

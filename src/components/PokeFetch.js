@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import PokeDisplay from "./display/PokeDisplay";
 import Search from "./navigation/Search";
-import Browse from "./navigation/Browse"
+import Match from "./Match";
+import MatchFail from "./MatchFail"
 
 function PokeStats() {
   const [pokeStatus, setPokeStatus] = useState({})
@@ -30,31 +30,35 @@ function PokeStats() {
             height: data.height,
           }
         );
+        setError(null)
       })
       .catch((err) => {
         setError(err.message);
-      })
+      }),
+      [apiLink, searchQuery]
   );
 
   return (
     <div>
       {/* Ternary betweeen showing a new pokemon or error display */}
-      {error == null ? (
-        <PokeDisplay
-          pokeStatus={pokeStatus}
-        />
-      ) : (
-        error
-      )}
-      
-      <Browse 
-      setSearchQuery={setSearchQuery} 
-      pokeStatus={pokeStatus} setPokeStatus={setPokeStatus}/>
+      {error == null ? 
+        (
+          <Match 
+            pokeStatus={pokeStatus} 
+            setPokeStatus={setPokeStatus} 
+            setSearchQuery={setSearchQuery}
+          />
+        ) : 
+        (
+          <MatchFail error={error}/>
+        )
+      }
       <br />
-      
+
       <Search 
       setSearchQuery={setSearchQuery} 
       />
+      
     </div>
   );
 }

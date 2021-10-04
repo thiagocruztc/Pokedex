@@ -5,11 +5,8 @@ function PokeDisplay(props) {
   return (
     <div>
       <h2>Name: {props.pokeStatus.name}</h2>
-      <h2>Number: {props.pokeStatus.number}</h2>
-      <h2>
-        Type: {props.pokeStatus.type1} {props.pokeStatus.type2}
-      </h2>
-      <Types pokeType1={props.pokeType1} pokeType={props.pokeType2} />
+      <h2>Number: {`#${props.pokeStatus.number}`}</h2>
+      <Types pokeStatus={props.pokeStatus} />
       <h2>Height: {props.pokeStatus.height}</h2>
       <img
         src={props.pokeStatus.artwork}

@@ -7,20 +7,38 @@ function PokeStats() {
   const [pokeStatus, setPokeStatus] = useState({})
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState("bulbasaur")
-  var apiLink = `https://pokeapi.co/api/v2/pokemon/${searchQuery}`;
+  const [searchPokemon, setSearchPokemon] = useState("https://pokeapi.co/api/v2/pokemon/1/")
+  var apiLink = `https://pokeapi.co/api/v2/pokemon-species/${searchQuery}`;
 
+  // Fetch Pokemon by species for multiform cases
   useEffect(() =>
-    fetch(apiLink)
+  fetch(apiLink)
+    .then((response) => {
+      if (!response.ok) {
+        throw Error(`Couldn't find "${searchQuery}" on database`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      setSearchPokemon(data.varieties[0].pokemon.url)
+      setError(null)
+    })
+    .catch((err) => {
+      setError(err.message);
+    }),
+    [apiLink, searchQuery]
+);
+
+  // Fetch pokemon by the searchPokemon state, which returned the default form of the Pokémon
+  useEffect(() =>
+    fetch(searchPokemon)
       .then((response) => {
-        if (!response.ok) {
-          throw Error(`Couldn't find "${searchQuery}" on database`);
-        }
         return response.json();
       })
       .then((data) => {
         setPokeStatus(
           {
-            name: data.name, 
+            name: data.species.name, 
             number: data.id,
             type1: data.types[0].type.name,
             type2: (data.types.length > 1) ? data.types[1].type.name : '',
@@ -31,11 +49,8 @@ function PokeStats() {
           }
         );
         setError(null)
-      })
-      .catch((err) => {
-        setError(err.message);
       }),
-      [apiLink, searchQuery]
+      [apiLink, searchQuery, searchPokemon]
   );
 
   return (

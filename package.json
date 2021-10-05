@@ -1,12 +1,13 @@
 {
-  "name": "pokedex",
+  "name": "pokedex-v012",
   "version": "1.0.0",
-  "description": "",
+  "description": "- Applied styles\n- Applied dynamic colors for types\n- Started responsive adjustments",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-icons": "4.3.1",
     "react-scripts": "4.0.0"
   },
   "devDependencies": {

@@ -1,4 +1,169 @@
+/* Importing Google Fonts */
+
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+/* Defining Grids Mobile First */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.grid--gap10 {
+  grid-gap: 10px;
+}
+
+.grid__col1 {
+  grid-column: span 1;
+}
+.grid__col2 {
+  grid-column: span 2;
+}
+.grid__col3 {
+  grid-column: span 3;
+}
+.grid__col4 {
+  grid-column: span 4;
+}
+.grid__col5 {
+  grid-column: span 5;
+}
+.grid__col6 {
+  grid-column: span 6;
+}
+.grid__col7 {
+  grid-column: span 7;
+}
+.grid__col8 {
+  grid-column: span 8;
+}
+.grid__col9 {
+  grid-column: span 9;
+}
+.grid__col10 {
+  grid-column: span 10;
+}
+.grid__col11 {
+  grid-column: span 11;
+}
+.grid__col12 {
+  grid-column: span 12;
+}
+
+/* Main Elements */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: Quicksand, Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0 16px 0 16px;
+  height: 100vh;
+}
+
+/* Components */
+
 .App {
-  font-family: sans-serif;
   text-align: center;
+  height: 100%;
+  padding: 15px 0 15px 0;
+}
+
+/* Search */
+
+.search-input-container {
+  display: flex;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 51px;
+}
+
+.search-button {
+  padding: 12px 6px 12px 6px;
+  color: black;
+  min-width: 50px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.search-input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border: none;
+  margin-left: 25px;
+}
+
+.search-input-field:focus {
+  border: none;
+}
+
+/* Main View */
+
+.main-view {
+  /* background-color: #c3ebab; */
+  border-radius: 8px;
+  padding: 20px 0 20px 0;
+  margin: 10px 0 0;
+}
+
+/* PokeDisplay */
+
+.poke-number {
+  padding: 0 0 0 15px;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: left;
+  position: absolute;
+}
+
+.poke-art {
+  background-color: white;
+  width: 90%;
+  border-radius: 100%;
+  margin: 0 auto;
+  padding: -15px;
+}
+
+.poke-art img {
+  width: 100%;
+}
+
+.poke-name {
+  text-transform: capitalize;
+  font-size: 26px;
+  margin: 10px 0 10px 0;
+}
+
+.poke-type {
+  width: 35px;
+  padding: 0px 5px 0 5px;
+}
+
+.poke-sprite {
+  background-color: white;
+  width: 75%;
+  border-radius: 12px;
+  margin: 0 auto;
+}
+
+/* Browse */
+
+.browse button {
+  background: none;
+  color: white;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  font-size: 32px;
+  font-weight: 700;
 }

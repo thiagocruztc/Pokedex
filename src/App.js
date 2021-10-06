@@ -1,10 +1,10 @@
 import "./styles.css";
 import PokeFetch from "./components/PokeFetch";
+import Header from "./components/pagelayout/Header";
 
 export default function App() {
   return (
     <div className="App">
-      <h1>Pokedex</h1>
       <PokeFetch />
     </div>
   );

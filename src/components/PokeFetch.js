@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Search from "./navigation/Search";
-import Match from "./Match";
-import MatchFail from "./MatchFail"
-
+import MainView from "./MainView"
 function PokeStats() {
   const [pokeStatus, setPokeStatus] = useState({})
   const [error, setError] = useState(null);
@@ -54,27 +51,11 @@ function PokeStats() {
   );
 
   return (
-    <div>
-      {/* Ternary betweeen showing a new pokemon or error display */}
-      {error == null ? 
-        (
-          <Match 
-            pokeStatus={pokeStatus} 
-            setPokeStatus={setPokeStatus} 
-            setSearchQuery={setSearchQuery}
-          />
-        ) : 
-        (
-          <MatchFail error={error}/>
-        )
-      }
-      <br />
-
-      <Search 
-      setSearchQuery={setSearchQuery} 
-      />
-      
-    </div>
+    <MainView 
+    error={error} 
+    pokeStatus={pokeStatus} 
+    setPokeStatus={setPokeStatus} 
+    setSearchQuery={setSearchQuery}/>
   );
 }
 

@@ -7,7 +7,7 @@ function Types(props) {
       <img
         src={`./assets/${props.pokeStatus.type1}.svg`}
         alt={`${props.pokeStatus.type1}-type-icon`}
-        className="pokemon-type"
+        className="poke-type"
       ></img>
 
       {/* If there's a Type2, apply it. If not, return null */}
@@ -15,7 +15,7 @@ function Types(props) {
         <img
           src={`./assets/${props.pokeStatus.type2}.svg`}
           alt={`${props.pokeStatus.type2}-type-icon`}
-          className="pokemon-type"
+          className="poke-type"
         ></img>
       ) : (
         ""
